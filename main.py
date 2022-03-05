@@ -44,7 +44,7 @@ def json_example6(resturantName):
 @app.route('/<resturnat>/<filename>', methods=['GET', 'POST'])
 def download(resturant,filename):
     uploads = os.path.join(current_app.root_path, 'images/'+resturant)
-    return send_from_directory(directory=uploads, path=filename)
+    return send_from_directory(directory=uploads, path=filename) 
 
 @app.route('/download')
 def downloadFile ():
