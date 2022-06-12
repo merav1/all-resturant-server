@@ -1,1 +1,0 @@
-web: run-program python main.py
