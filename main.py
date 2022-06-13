@@ -9,7 +9,7 @@ from waitress import serve
 
 # create the Flask app
 app = Flask(__name__)
-
+count=1
 cred = credentials.Certificate('firebase.json')
 firebase_admin.initialize_app(cred,{
     'databaseURL' : 'https://allrestaurant-7ab8f-default-rtdb.firebaseio.com/'
@@ -80,13 +80,16 @@ def order():
     
     ref=db.reference('/orders')
     ref.push({
-        jres["details"]["resturantname"] : {
-            jres["details"]["city"] : {
-                "time" : jres["details"]["time"],
-                "manot" : jres["manot"]
+        str(count) : {
+            jres["details"]["resturantname"] : {
+                jres["details"]["city"] : {
+                    "time" : jres["details"]["time"],
+                    "manot" : jres["manot"]
+                }
             }
         }
     })
+    count=count+1
     print(data)
     return ""
 
