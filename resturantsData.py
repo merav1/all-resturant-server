@@ -11,13 +11,13 @@ ref = db.reference('/menu')
 ref.set(    {
     
     'besari':
-    [{"name":"BurgersBar","url":"http://speedclient.herokuapp.com/uploads/BurgersBar.jpg"},{"name":"McDonalds","url":"http://speedclient.herokuapp.com/uploads/McDonalds.jpeg"}]
+    {"name":"BurgersBar","url":"http://speedclient.herokuapp.com/uploads/BurgersBar.jpg"}
     ,'halavi':
-    [{"name":"Cafe-Cafe","url":"http://speedclient.herokuapp.com/uploads/cafe-cafe.jpeg"},{"name":"landwer","url":"http://speedclient.herokuapp.com/uploads/landwer.jpg"}]
+    {"name":"landwer","url":"http://speedclient.herokuapp.com/uploads/landwer.jpg"}
     ,'asiati':
     [{"name":"Japanika","url":"http://speedclient.herokuapp.com/uploads/japanika.jpg"}]
     ,'allResto':
-    [{"name":"Cafe-Cafe","url":"http://speedclient.herokuapp.com/uploads/cafe-cafe.jpeg"}, {"name":"landwer","url":"http://speedclient.herokuapp.com/uploads/landwer.jpg"},{"name":"Japanika","url":"http://speedclient.herokuapp.com/uploads/japanika.jpg"}, {"name":"BurgersBar","url":"http://speedclient.herokuapp.com/uploads/BurgersBar.jpg"},{"name":"McDonalds","url":"http://speedclient.herokuapp.com/uploads/McDonalds.jpeg"}]
+    [ {"name":"landwer","url":"http://speedclient.herokuapp.com/uploads/landwer.jpg"},{"name":"Japanika","url":"http://speedclient.herokuapp.com/uploads/japanika.jpg"}, {"name":"BurgersBar","url":"http://speedclient.herokuapp.com/uploads/BurgersBar.jpg"}]
 })
 
 ref = db.reference('/branche')

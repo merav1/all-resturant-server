@@ -129,6 +129,34 @@ def detail(resturantName,city,category,mana):
     return str(ref.get())
 
 
+@app.route('/orders')
+# ‘/’ URL is bound with hello_world() function.
+def hello_world():
+    ref = db.reference('/orders/')
+    res = ref.get()
+    print(res)
+    stre="["
+    for el in res:
+        order=res[el]
+        for id in order:
+            orderres=order[id]
+            for resname in orderres:
+                ordercity= orderres[resname]
+                for city in ordercity:
+                    #print(ordercity)
+                    manot=ordercity[city]
+                    for mana in manot['manot']:
+                        time = manot['time']
+                        count= mana['count']
+                        price=mana['price']
+                        name=mana['mana']
+                        stre += '{ "id":' + str(id) + ', "time": "' + time + '", "name": "' + name + '", "table": "' + resname + '" , "price": ' + price[5:7] + ' , "count" : ' + str(count) + ' },'
+    stre = stre[:-1] + "]"
+    print(stre)
+    return stre
+
+
+
 if __name__ == '__main__':
     port = int(os.environ.get('PORT',5000))
     # run app in debug mode on port 5000
