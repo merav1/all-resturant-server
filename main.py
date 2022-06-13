@@ -80,7 +80,7 @@ def order():
     
     ref=db.reference('/orders')
     ref.set({
-        str(count) : {
+        count : {
             jres["details"]["resturantname"] : {
                 jres["details"]["city"] : {
                     "time" : jres["details"]["time"],
