@@ -75,19 +75,20 @@ def tafrit(resturantName,city,category):
 #tafrit
 @app.route('/order', methods=[ 'POST'])
 def order():
+    global count
     data=request.data
     jres=json.loads(data)
     
     ref=db.reference('/orders')
     ref.set({
-        
+        str(count) : {
             jres["details"]["resturantname"] : {
                 jres["details"]["city"] : {
                     "time" : jres["details"]["time"],
                     "manot" : jres["manot"]
                 }
             }
-        
+        }
     })
     count=count+1
     print(data)
