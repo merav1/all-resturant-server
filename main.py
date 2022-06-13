@@ -5,6 +5,8 @@ from firebase_admin import credentials
 from firebase_admin import db
 import json
 from waitress import serve
+
+
 # create the Flask app
 app = Flask(__name__)
 
@@ -34,7 +36,7 @@ def asiati():
 def allResto():
     ref = db.reference('/menu/allResto') 
     return str(ref.get())
-    # return '[{"name":"cafe-Cafe","url":"http://10.0.2.2:5000/uploads/cafecafe.bmp"}, {"name":"landwer","url":"http://10.0.2.2:5000/uploads/landwer.bmp"},{"name":"joya","url":"http://10.0.2.2:5000/uploads/joya.bmp"}, {"name":"bb","url":"http://10.0.2.2:5000/uploads/bb1.bmp"},{"name":"mcDonalds","url":"http://10.0.2.2:5000/uploads/mcdonalds.bmp"}]'
+    # return '[{"name":"cafe-Cafe","url":"http://speedclient.herokuapp.com/uploads/cafecafe.bmp"}, {"name":"landwer","url":"http://speedclient.herokuapp.com/uploads/landwer.bmp"},{"name":"joya","url":"http://speedclient.herokuapp.com/uploads/joya.bmp"}, {"name":"bb","url":"http://speedclient.herokuapp.com/uploads/bb1.bmp"},{"name":"mcDonalds","url":"http://speedclient.herokuapp.com/uploads/mcdonalds.bmp"}]'
 
 #allResto/halavi/besari/asiati
 @app.route('/uploads/<filename>', methods=['GET', 'POST'])
@@ -77,7 +79,7 @@ def order():
     jres=json.loads(data)
     
     ref=db.reference('/orders')
-    ref.set({
+    ref.push({
         jres["details"]["resturantname"] : {
             jres["details"]["city"] : {
                 "time" : jres["details"]["time"],
