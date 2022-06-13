@@ -1,4 +1,5 @@
 from flask import Flask, request, send_from_directory, send_file, current_app
+from flask_cors import CORS , cross_origin
 import os
 import firebase_admin
 from firebase_admin import credentials
@@ -6,6 +7,7 @@ from firebase_admin import db
 import json
 from waitress import serve
 import random
+
 
 
 # create the Flask app
@@ -128,7 +130,7 @@ def detail(resturantName,city,category,mana):
     #print(str(ref.get()))
     return str(ref.get())
 
-
+@cross_origin(origin='*')
 @app.route('/orders')
 # ‘/’ URL is bound with hello_world() function.
 def hello_world():
