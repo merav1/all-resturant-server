@@ -91,6 +91,7 @@ def order():
     })
     count=count+1
     print(data)
+    print(str(count))
     return ""
 
 
