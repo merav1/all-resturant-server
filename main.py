@@ -5,6 +5,7 @@ from firebase_admin import credentials
 from firebase_admin import db
 import json
 from waitress import serve
+import random
 
 
 # create the Flask app
@@ -75,13 +76,13 @@ def tafrit(resturantName,city,category):
 #tafrit
 @app.route('/order', methods=[ 'POST'])
 def order():
-    global count
+    
     data=request.data
     jres=json.loads(data)
     
     ref=db.reference('/orders')
     ref.push({
-        str(count) : {
+        str(random.randint(1,10000)) : {
             jres["details"]["resturantname"] : {
                 jres["details"]["city"] : {
                     "time" : jres["details"]["time"],
@@ -90,9 +91,9 @@ def order():
             }
         }
     })
-    count=count+1
+    
     print(data)
-    print(str(count))
+    
     return ""
 
 
